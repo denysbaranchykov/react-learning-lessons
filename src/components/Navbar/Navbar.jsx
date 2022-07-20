@@ -1,18 +1,14 @@
+import { Link } from 'react-router-dom';
 import  s from './Navbar.module.css';
-
-// let s = {
-//   'nav': 'Navbar_nav__DS0RX',
-//   'item': 'Navbar_item__Ccd2B'
-// }
 
 
 const Navbar = () => {
     return  <nav className={s.nav}> 
     <div className={s.item}>
-      <a>Profile</a>
+      <Link to='/profile'>Profile </Link>
     </div>
     <div className={`${s.item} ${s.active}`}>
-      <a>Messages</a>
+      <Link to='/dialogs'>Messages</Link>
     </div>
     <div className={s.item}>
       <a>News</a>
