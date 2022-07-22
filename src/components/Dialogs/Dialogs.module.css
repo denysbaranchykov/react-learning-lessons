@@ -7,9 +7,10 @@ grid-template-columns: 2fr 10fr;
     padding: 20px
 
 }
-.dialogsItems .active{
+.dialogsItems.active{
     color: gold;
 }
+
 
 .messages{
 padding: 20px
