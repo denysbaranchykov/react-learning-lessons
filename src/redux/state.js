@@ -25,6 +25,12 @@ let state = {
             { id: 5, message: "Yo" },
         ]
     },
+    sideBar: {
+        friends: [
+            {name: 'Denys',
+            name: 'Zheka'}
+        ]
+    }
 
 }
 
