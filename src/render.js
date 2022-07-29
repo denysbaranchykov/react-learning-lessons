@@ -6,8 +6,9 @@ import App from './App';
 import { addPost, updateNewPostText } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
 
-export let rerenderEntireTree = (state) => {
-  const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+export const rerenderEntireTree = (state) => {
+
   root.render(
     <React.StrictMode>
       <BrowserRouter>
