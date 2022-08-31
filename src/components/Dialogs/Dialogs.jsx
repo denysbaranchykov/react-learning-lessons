@@ -3,6 +3,8 @@ import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css'
 import Message from './Message/Message';
 import {Redirect} from "react-router-dom";
+import handleSubmit from "redux-form/lib/handleSubmit";
+import {Field, reduxForm} from "redux-form";
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;
@@ -13,12 +15,9 @@ const Dialogs = (props) => {
         <Message message={m.message} key={index + m.message}/>);
     let newMessageBody = state.newMessageBody;
 
-    const onSendMessageClick = () => {
-        props.sendMessage();
-    };
-    const onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageBody(body)
+
+    const addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody);
     };
 
     return (
@@ -28,17 +27,28 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 <div>{messagesElements}</div>
-                <div>
-                    <div><textarea value={newMessageBody}
-                                   onChange={onNewMessageChange}
-                                   placeholder='Enter your message'></textarea></div>
-                    <div>
-                        <button onClick={onSendMessageClick}>Send</button>
-                    </div>
-                </div>
+
+                <AddMessageFormRedux onSubmit={addNewMessage}/>
             </div>
         </div>
     )
 }
+
+const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field name='newMessageBody' component='textarea'
+                       placeholder='Enter your message'/>
+            </div>
+            <div>
+                <button>Send</button>
+            </div>
+        </form>
+    )
+}
+
+const AddMessageFormRedux = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm);
+
 
 export default Dialogs;
