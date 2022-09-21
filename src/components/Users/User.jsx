@@ -2,8 +2,13 @@ import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {NavLink} from "react-router-dom";
+import UsersContainer from "./UsersContainer";
 
-let User = ({user, followingInProgress, unfollow, follow}) => {
+let User = ({user, followingInProgress, unfollow, follow, setOnButtonStatus, ...props}) => {
+
+    console.log('setOnButtonStatus', setOnButtonStatus);
+    console.log('isClicked', props.isClicked);
+
 
     return (
         <div>
@@ -27,6 +32,10 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                                   }}>
                             Follow</button>}
                 </div>
+                <div>
+                  <button onClick={ () => setOnButtonStatus(!props.isClicked)}>Toggle me </button>
+                <span>{props.isClicked ? 'clicked' : 'not clicked'}</span>
+                 </div>
             </span>
             <span>
                 <span>

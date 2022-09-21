@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {
     follow, getUsers,
-    setCurrentPage,
+    setCurrentPage, setOnButtonStatus,
     toggleFollowingProgress,
     unfollow
 } from "../../redux/users-reducer";
@@ -17,6 +17,11 @@ import {
 } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
+    // state = {
+    //     nearButtonInscription: false,
+    // };
+
+
     componentDidMount() {
         const {currentPage, pageSize} = this.props;
         this.props.getUsers(currentPage, pageSize)
@@ -38,6 +43,10 @@ class UsersContainer extends React.Component {
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
                    followingInProgress={this.props.followingInProgress}
+                   // clickedOnButton={this.clickedOnButton}
+                   // nearButtonInscription={this.state.nearButtonInscription}
+                   setOnButtonStatus={this.props.setOnButtonStatus}
+                   isClicked={this.props.isClicked}
             />
         </>
     }
@@ -50,7 +59,8 @@ const mapStateToProps = (state) => {
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        followingInProgress: getFollowingInProgress(state),
+        isClicked: state.usersPage.isClicked
     }
 }
 
@@ -60,6 +70,7 @@ export default compose(
         unfollow,
         setCurrentPage,
         toggleFollowingProgress,
-        getUsers
+        getUsers,
+        setOnButtonStatus
     })
 )(UsersContainer)
