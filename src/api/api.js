@@ -45,7 +45,10 @@ formData.append('image', photoFile);
                 'Content-Type': 'multipart/form-data'
             }
         } );
-    }
+    },
+    saveProfile(profile) {
+        return instance.put(`profile`, profile );
+    },
 }
 
 export const authAPI = {

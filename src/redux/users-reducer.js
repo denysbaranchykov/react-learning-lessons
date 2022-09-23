@@ -73,7 +73,7 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
     userId
 });
 
-export const setOnButtonStatus = (isClicked = false ) => ({
+export const setOnButtonStatus = (isClicked = false) => ({
     type: SET_ON_BUTTON_STATUS, isClicked
 })
 
