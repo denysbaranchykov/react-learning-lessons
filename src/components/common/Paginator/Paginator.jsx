@@ -16,9 +16,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
     let rightPortionPageNumber = portionNumber* portionSize;
 
 
-    console.log('portionNumber', portionNumber);
-
-    return <div className={styles.paginator}>
+    return <div className={cn(styles.paginator, {[styles.selectedPage]: false})}>
         {portionNumber > 1 &&
         <button onClick={() => {setPortionNumber(portionNumber-1)}}> Prev
         </button>
