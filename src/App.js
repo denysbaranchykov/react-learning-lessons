@@ -1,14 +1,11 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import {BrowserRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
-// import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-// import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import React, {Component} from "react";
 import {connect, Provider} from "react-redux";
-
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
@@ -22,12 +19,14 @@ class App extends Component {
     catchAllUnhandledErrors = (reason, promise) => {
         alert('some error is here bro');
     }
+
     componentDidMount() {
         this.props.initializeApp();
         window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors
 //handle error here
         )
     }
+
     componentWillUnmount() {
         window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors)
     }
