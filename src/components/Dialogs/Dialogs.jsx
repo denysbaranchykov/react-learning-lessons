@@ -2,9 +2,6 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css'
 import Message from './Message/Message';
-import {Redirect} from "react-router-dom";
-import handleSubmit from "redux-form/lib/handleSubmit";
-import {Field, reduxForm} from "redux-form";
 import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
 const Dialogs = (props) => {
@@ -15,7 +12,6 @@ const Dialogs = (props) => {
     let messagesElements = state.messages.map((m, index) =>
         <Message message={m.message} key={index + m.message}/>);
     let newMessageBody = state.newMessageBody;
-
 
     const addNewMessage = (values) => {
         props.sendMessage(values.newMessageBody);
@@ -33,6 +29,5 @@ const Dialogs = (props) => {
         </div>
     )
 }
-
 
 export default Dialogs;

@@ -21,7 +21,6 @@ class UsersContainer extends React.Component {
     //     nearButtonInscription: false,
     // };
 
-
     componentDidMount() {
         const {currentPage, pageSize} = this.props;
         this.props.getUsers(currentPage, pageSize)
@@ -43,8 +42,8 @@ class UsersContainer extends React.Component {
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
                    followingInProgress={this.props.followingInProgress}
-                   // clickedOnButton={this.clickedOnButton}
-                   // nearButtonInscription={this.state.nearButtonInscription}
+                // clickedOnButton={this.clickedOnButton}
+                // nearButtonInscription={this.state.nearButtonInscription}
                    setOnButtonStatus={this.props.setOnButtonStatus}
                    isClicked={this.props.isClicked}
             />

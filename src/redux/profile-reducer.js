@@ -93,5 +93,4 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     return Promise.reject(response.data.messages[0])
 }
 
-
 export default profileReducer;

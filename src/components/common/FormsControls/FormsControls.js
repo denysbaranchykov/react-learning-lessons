@@ -3,7 +3,7 @@ import styles from './FormsControls.module.css'
 import {Field} from "redux-form";
 import {required} from "../../../utils/validators/validators";
 
-const FormControl = ({input, meta: {touched, error }, children}) => {
+const FormControl = ({input, meta: {touched, error}, children}) => {
     const hasError = touched && error;
     return (
         <div className={styles.formControl + ' ' + (hasError ? styles.error : '')}>
@@ -28,7 +28,7 @@ export const Input = (props) => {
     </FormControl>
 }
 
-export const createField = (placeholder, name, validators, component, props={}, text = '') => (
+export const createField = (placeholder, name, validators, component, props = {}, text = '') => (
     <div>
         <Field placeholder={placeholder}
                name={name}

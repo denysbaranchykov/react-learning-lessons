@@ -10,7 +10,6 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 const SET_ON_BUTTON_STATUS = 'SET_ON_BUTTON_STATUS';
 
-
 let initialState = {
     users: [],
     pageSize: 10,
@@ -76,7 +75,6 @@ export const toggleFollowingProgress = (isFetching, userId) => ({
 export const setOnButtonStatus = (isClicked = false) => ({
     type: SET_ON_BUTTON_STATUS, isClicked
 })
-
 
 export const getUsers = (page, pageSize) => {
     return async (dispatch) => {

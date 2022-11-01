@@ -5,7 +5,6 @@ import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from ".
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
-
 class ProfileContainer extends React.Component {
     refreshProfile() {
         let userId = this.props.match.params.userId;

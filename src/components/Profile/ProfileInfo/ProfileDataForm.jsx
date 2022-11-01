@@ -2,9 +2,7 @@ import React from "react";
 import {createField, Input, Textarea} from "../../common/FormsControls/FormsControls";
 import {reduxForm} from "redux-form";
 import s from './ProfileInfo.module.css';
-import handleSubmit from "redux-form/lib/handleSubmit";
 import styles from "../../common/FormsControls/FormsControls.module.css";
-
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
     return <form onSubmit={handleSubmit}>
